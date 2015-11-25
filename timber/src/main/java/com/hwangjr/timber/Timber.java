@@ -8,108 +8,79 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.jetbrains.annotations.NonNls;
 
 import static java.util.Collections.unmodifiableList;
 
-/**
- * Logging for lazy people.
- */
+/** Logging for lazy people. */
 public final class Timber {
-    /**
-     * Log a verbose message with optional format args.
-     */
-    public static void v(String message, Object... args) {
+    /** Log a verbose message with optional format args. */
+    public static void v(@NonNls String message, Object... args) {
         TREE_OF_SOULS.v(message, args);
     }
 
-    /**
-     * Log a verbose exception and a message with optional format args.
-     */
-    public static void v(Throwable t, String message, Object... args) {
+    /** Log a verbose exception and a message with optional format args. */
+    public static void v(Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.v(t, message, args);
     }
 
-    /**
-     * Log a debug message with optional format args.
-     */
-    public static void d(String message, Object... args) {
+    /** Log a debug message with optional format args. */
+    public static void d(@NonNls String message, Object... args) {
         TREE_OF_SOULS.d(message, args);
     }
 
-    /**
-     * Log a debug exception and a message with optional format args.
-     */
-    public static void d(Throwable t, String message, Object... args) {
+    /** Log a debug exception and a message with optional format args. */
+    public static void d(Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.d(t, message, args);
     }
 
-    /**
-     * Log an info message with optional format args.
-     */
-    public static void i(String message, Object... args) {
+    /** Log an info message with optional format args. */
+    public static void i(@NonNls String message, Object... args) {
         TREE_OF_SOULS.i(message, args);
     }
 
-    /**
-     * Log an info exception and a message with optional format args.
-     */
-    public static void i(Throwable t, String message, Object... args) {
+    /** Log an info exception and a message with optional format args. */
+    public static void i(Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.i(t, message, args);
     }
 
-    /**
-     * Log a warning message with optional format args.
-     */
-    public static void w(String message, Object... args) {
+    /** Log a warning message with optional format args. */
+    public static void w(@NonNls String message, Object... args) {
         TREE_OF_SOULS.w(message, args);
     }
 
-    /**
-     * Log a warning exception and a message with optional format args.
-     */
-    public static void w(Throwable t, String message, Object... args) {
+    /** Log a warning exception and a message with optional format args. */
+    public static void w(Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.w(t, message, args);
     }
 
-    /**
-     * Log an error message with optional format args.
-     */
-    public static void e(String message, Object... args) {
+    /** Log an error message with optional format args. */
+    public static void e(@NonNls String message, Object... args) {
         TREE_OF_SOULS.e(message, args);
     }
 
-    /**
-     * Log an error exception and a message with optional format args.
-     */
-    public static void e(Throwable t, String message, Object... args) {
+    /** Log an error exception and a message with optional format args. */
+    public static void e(Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.e(t, message, args);
     }
 
-    /**
-     * Log an assert message with optional format args.
-     */
-    public static void wtf(String message, Object... args) {
+    /** Log an assert message with optional format args. */
+    public static void wtf(@NonNls String message, Object... args) {
         TREE_OF_SOULS.wtf(message, args);
     }
 
-    /**
-     * Log an assert exception and a message with optional format args.
-     */
-    public static void wtf(Throwable t, String message, Object... args) {
+    /** Log an assert exception and a message with optional format args. */
+    public static void wtf(Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.wtf(t, message, args);
     }
 
-    /**
-     * Log at {@code priority} a message with optional format args.
-     */
-    public static void log(int priority, String message, Object... args) {
+    /** Log at {@code priority} a message with optional format args. */
+    public static void log(int priority, @NonNls String message, Object... args) {
         TREE_OF_SOULS.log(priority, message, args);
     }
 
-    /**
-     * Log at {@code priority} an exception and a message with optional format args.
-     */
-    public static void log(int priority, Throwable t, String message, Object... args) {
+    /** Log at {@code priority} an exception and a message with optional format args. */
+    public static void log(int priority, Throwable t, @NonNls String message, Object... args) {
         TREE_OF_SOULS.log(priority, t, message, args);
     }
 
@@ -121,9 +92,7 @@ public final class Timber {
         return TREE_OF_SOULS;
     }
 
-    /**
-     * Set a one-time tag for use on the next logging call.
-     */
+    /** Set a one-time tag for use on the next logging call. */
     public static Tree tag(String tag) {
         Tree[] forest = forestAsArray;
         //noinspection ForLoopReplaceableByForEach
@@ -133,9 +102,7 @@ public final class Timber {
         return TREE_OF_SOULS;
     }
 
-    /**
-     * Add a new logging tree.
-     */
+    /** Add a new logging tree. */
     public static void plant(Tree tree) {
         if (tree == null) {
             throw new NullPointerException("tree == null");
@@ -149,9 +116,7 @@ public final class Timber {
         }
     }
 
-    /**
-     * Remove a planted tree.
-     */
+    /** Remove a planted tree. */
     public static void uproot(Tree tree) {
         synchronized (FOREST) {
             if (!FOREST.remove(tree)) {
@@ -161,9 +126,7 @@ public final class Timber {
         }
     }
 
-    /**
-     * Remove all planted trees.
-     */
+    /** Remove all planted trees. */
     public static void uprootAll() {
         synchronized (FOREST) {
             FOREST.clear();
@@ -171,9 +134,7 @@ public final class Timber {
         }
     }
 
-    /**
-     * Return a copy of all planted {@linkplain Tree trees}.
-     */
+    /** Return a copy of all planted {@linkplain Tree trees}. */
     public static List<Tree> forest() {
         synchronized (FOREST) {
             return unmodifiableList(new ArrayList<>(FOREST));
@@ -185,12 +146,9 @@ public final class Timber {
     private static final List<Tree> FOREST = new ArrayList<>();
     private static volatile Tree[] forestAsArray = TREE_ARRAY_EMPTY;
 
-    /**
-     * A {@link Tree} that delegates to all planted trees in the {@linkplain #FOREST forest}.
-     */
+    /** A {@link Tree} that delegates to all planted trees in the {@linkplain #FOREST forest}. */
     private static final Tree TREE_OF_SOULS = new Tree() {
-        @Override
-        public void v(String message, Object... args) {
+        @Override public void v(String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -198,8 +156,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void v(Throwable t, String message, Object... args) {
+        @Override public void v(Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -207,8 +164,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void d(String message, Object... args) {
+        @Override public void d(String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -216,8 +172,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void d(Throwable t, String message, Object... args) {
+        @Override public void d(Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -225,8 +180,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void i(String message, Object... args) {
+        @Override public void i(String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -234,8 +188,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void i(Throwable t, String message, Object... args) {
+        @Override public void i(Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -243,8 +196,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void w(String message, Object... args) {
+        @Override public void w(String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -252,8 +204,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void w(Throwable t, String message, Object... args) {
+        @Override public void w(Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -261,8 +212,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void e(String message, Object... args) {
+        @Override public void e(String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -270,8 +220,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void e(Throwable t, String message, Object... args) {
+        @Override public void e(Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -279,8 +228,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void wtf(String message, Object... args) {
+        @Override public void wtf(String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -288,8 +236,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void wtf(Throwable t, String message, Object... args) {
+        @Override public void wtf(Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -297,8 +244,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void log(int priority, String message, Object... args) {
+        @Override public void log(int priority, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -306,8 +252,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        public void log(int priority, Throwable t, String message, Object... args) {
+        @Override public void log(int priority, Throwable t, String message, Object... args) {
             Tree[] forest = forestAsArray;
             //noinspection ForLoopReplaceableByForEach
             for (int i = 0, count = forest.length; i < count; i++) {
@@ -315,8 +260,7 @@ public final class Timber {
             }
         }
 
-        @Override
-        protected void log(int priority, String tag, String message, Throwable t) {
+        @Override protected void log(int priority, String tag, String message, Throwable t) {
             throw new AssertionError("Missing override for log method.");
         }
     };
@@ -325,9 +269,7 @@ public final class Timber {
         throw new AssertionError("No instances.");
     }
 
-    /**
-     * A facade for handling logging calls. Install instances via {@link #plant Timber.plant()}.
-     */
+    /** A facade for handling logging calls. Install instances via {@link #plant Timber.plant()}. */
     public static abstract class Tree {
         private final ThreadLocal<String> explicitTag = new ThreadLocal<>();
 
@@ -339,107 +281,77 @@ public final class Timber {
             return tag;
         }
 
-        /**
-         * Log a verbose message with optional format args.
-         */
+        /** Log a verbose message with optional format args. */
         public void v(String message, Object... args) {
             prepareLog(Log.VERBOSE, null, message, args);
         }
 
-        /**
-         * Log a verbose exception and a message with optional format args.
-         */
+        /** Log a verbose exception and a message with optional format args. */
         public void v(Throwable t, String message, Object... args) {
             prepareLog(Log.VERBOSE, t, message, args);
         }
 
-        /**
-         * Log a debug message with optional format args.
-         */
+        /** Log a debug message with optional format args. */
         public void d(String message, Object... args) {
             prepareLog(Log.DEBUG, null, message, args);
         }
 
-        /**
-         * Log a debug exception and a message with optional format args.
-         */
+        /** Log a debug exception and a message with optional format args. */
         public void d(Throwable t, String message, Object... args) {
             prepareLog(Log.DEBUG, t, message, args);
         }
 
-        /**
-         * Log an info message with optional format args.
-         */
+        /** Log an info message with optional format args. */
         public void i(String message, Object... args) {
             prepareLog(Log.INFO, null, message, args);
         }
 
-        /**
-         * Log an info exception and a message with optional format args.
-         */
+        /** Log an info exception and a message with optional format args. */
         public void i(Throwable t, String message, Object... args) {
             prepareLog(Log.INFO, t, message, args);
         }
 
-        /**
-         * Log a warning message with optional format args.
-         */
+        /** Log a warning message with optional format args. */
         public void w(String message, Object... args) {
             prepareLog(Log.WARN, null, message, args);
         }
 
-        /**
-         * Log a warning exception and a message with optional format args.
-         */
+        /** Log a warning exception and a message with optional format args. */
         public void w(Throwable t, String message, Object... args) {
             prepareLog(Log.WARN, t, message, args);
         }
 
-        /**
-         * Log an error message with optional format args.
-         */
+        /** Log an error message with optional format args. */
         public void e(String message, Object... args) {
             prepareLog(Log.ERROR, null, message, args);
         }
 
-        /**
-         * Log an error exception and a message with optional format args.
-         */
+        /** Log an error exception and a message with optional format args. */
         public void e(Throwable t, String message, Object... args) {
             prepareLog(Log.ERROR, t, message, args);
         }
 
-        /**
-         * Log an assert message with optional format args.
-         */
+        /** Log an assert message with optional format args. */
         public void wtf(String message, Object... args) {
             prepareLog(Log.ASSERT, null, message, args);
         }
 
-        /**
-         * Log an assert exception and a message with optional format args.
-         */
+        /** Log an assert exception and a message with optional format args. */
         public void wtf(Throwable t, String message, Object... args) {
             prepareLog(Log.ASSERT, t, message, args);
         }
 
-        /**
-         * Log at {@code priority} a message with optional format args.
-         */
+        /** Log at {@code priority} a message with optional format args. */
         public void log(int priority, String message, Object... args) {
             prepareLog(priority, null, message, args);
         }
 
-        /**
-         * Log at {@code priority} an exception and a message with optional format args.
-         */
+        /** Log at {@code priority} an exception and a message with optional format args. */
         public void log(int priority, Throwable t, String message, Object... args) {
             prepareLog(priority, t, message, args);
         }
 
-        /**
-         * Return whether a message at {@code priority} should be logged.
-         */
+        /** Return whether a message at {@code priority} should be logged. */
         protected boolean isLoggable(int priority) {
             return true;
         }
@@ -482,16 +394,14 @@ public final class Timber {
          * Write a log message to its destination. Called for all level-specific methods by default.
          *
          * @param priority Log level. See {@link Log} for constants.
-         * @param tag      Explicit or inferred tag. May be {@code null}.
-         * @param message  Formatted log message. May be {@code null}, but then {@code t} will not be.
-         * @param t        Accompanying exceptions. May be {@code null}, but then {@code message} will not be.
+         * @param tag Explicit or inferred tag. May be {@code null}.
+         * @param message Formatted log message. May be {@code null}, but then {@code t} will not be.
+         * @param t Accompanying exceptions. May be {@code null}, but then {@code message} will not be.
          */
         protected abstract void log(int priority, String tag, String message, Throwable t);
     }
 
-    /**
-     * A {@link Tree Tree} for debug builds. Automatically infers the tag from the calling class.
-     */
+    /** A {@link Tree Tree} for debug builds. Automatically infers the tag from the calling class. */
     public static class DebugTree extends Tree {
         private static final int MAX_LOG_LENGTH = 4000;
         private static final int CALL_STACK_INDEX = 5;
@@ -501,7 +411,7 @@ public final class Timber {
          * Extract the tag which should be used for the message from the {@code element}. By default
          * this will use the class name without any anonymous class suffixes (e.g., {@code Foo$1}
          * becomes {@code Foo}).
-         * <p/>
+         * <p>
          * Note: This will not be called if a {@linkplain #tag(String) manual tag} was specified.
          */
         protected String createStackElementTag(StackTraceElement element) {
@@ -513,8 +423,7 @@ public final class Timber {
             return tag.substring(tag.lastIndexOf('.') + 1);
         }
 
-        @Override
-        final String getTag() {
+        @Override final String getTag() {
             String tag = super.getTag();
             if (tag != null) {
                 return tag;
@@ -534,11 +443,10 @@ public final class Timber {
          * Break up {@code message} into maximum-length chunks (if needed) and send to either
          * {@link Log#println(int, String, String) Log.println()} or
          * {@link Log#wtf(String, String) Log.wtf()} for logging.
-         * <p/>
+         *
          * {@inheritDoc}
          */
-        @Override
-        protected void log(int priority, String tag, String message, Throwable t) {
+        @Override protected void log(int priority, String tag, String message, Throwable t) {
             if (message.length() < MAX_LOG_LENGTH) {
                 if (priority == Log.ASSERT) {
                     Log.wtf(tag, message);
