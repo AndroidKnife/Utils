@@ -1,8 +1,6 @@
 Utils
 ------
 
-Android utils, like get phone info, log, get screen info etc...
-
 This is a utils library with a small, extensible API which providers utility on top of Android's application develop.
 
 I copy this utils into all the little apps I make, I'm tired of doing it, I'm lazzy. Now it's a library.
