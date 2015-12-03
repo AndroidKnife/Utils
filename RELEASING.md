@@ -11,3 +11,11 @@ Releasing
  8. `git commit -am "Prepare next development version."`
  9. `git push && git push --tags`
  10. Visit [Sonatype Nexus](https://oss.sonatype.org/) and promote the artifact.
+
+Add New Module
+========
+
+ 1. New Module For Project
+ 2. Copy timber/gradle.properties and modify
+ 3. Modify module/build.gradle, consider the timber/build.gradle or other build.gradle
+ 4. Option, del res, modify manifest

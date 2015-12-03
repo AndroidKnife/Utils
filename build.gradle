@@ -33,16 +33,16 @@ ext {
 
 ext.deps = [
         // Test Dependencies
-        junit : 'junit:junit:4.12',
-        festassert : 'org.easytesting:fest-assert-core:2.0M10',
-        festandroid: 'com.squareup:fest-android:1.0.7',
-        mockitocore: 'org.mockito:mockito-core:1.9.5',
-        robolectric: 'org.robolectric:robolectric:3.0',
+        junit        : 'junit:junit:4.12',
+        festassert   : 'org.easytesting:fest-assert-core:2.0M10',
+        festandroid  : 'com.squareup:fest-android:1.0.7',
+        mockitocore  : 'org.mockito:mockito-core:1.9.5',
+        robolectric  : 'org.robolectric:robolectric:3.0',
 
         // Lint Dependencies
-        lintapi    : 'com.android.tools.lint:lint-api:24.3.1',
-        lintchecks : 'com.android.tools.lint:lint-checks:24.3.1',
+        lintapi      : 'com.android.tools.lint:lint-api:24.3.1',
+        lintchecks   : 'com.android.tools.lint:lint-checks:24.3.1',
 
         // jetbrains
-        jbannotations : 'org.jetbrains:annotations:13.0'
+        jbannotations: 'org.jetbrains:annotations:13.0'
 ]

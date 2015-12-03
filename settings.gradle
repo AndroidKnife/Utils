@@ -1,1 +1,1 @@
-include ':app', ':timber'
+include ':app', ':timber', ':softinput'

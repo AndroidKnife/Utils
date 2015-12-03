@@ -37,8 +37,8 @@ public class TimberTest {
     Timber.d("Test");
 
     assertLog()
-            .hasDebugMessage("TimberTest:37", "Test")
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest:37", "Test")
+        .hasNoMoreMessages();
   }
 
   @Test public void recursion() {
@@ -88,10 +88,10 @@ public class TimberTest {
     Timber.d("Second");
 
     assertLog()
-            .hasDebugMessage("TimberTest", "First")
-            .hasDebugMessage("TimberTest", "First")
-            .hasDebugMessage("TimberTest", "Second")
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest", "First")
+        .hasDebugMessage("TimberTest", "First")
+        .hasDebugMessage("TimberTest", "Second")
+        .hasNoMoreMessages();
   }
 
   @Test public void uprootAllRemovesAll() {
@@ -104,9 +104,9 @@ public class TimberTest {
     Timber.d("Second");
 
     assertLog()
-            .hasDebugMessage("TimberTest", "First")
-            .hasDebugMessage("TimberTest", "First")
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest", "First")
+        .hasDebugMessage("TimberTest", "First")
+        .hasNoMoreMessages();
   }
 
   @Test public void noArgsDoesNotFormat() {
@@ -114,8 +114,8 @@ public class TimberTest {
     Timber.d("te%st");
 
     assertLog()
-            .hasDebugMessage("TimberTest", "te%st")
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest", "te%st")
+        .hasNoMoreMessages();
   }
 
   @Test public void debugTreeTagGeneration() {
@@ -123,8 +123,8 @@ public class TimberTest {
     Timber.d("Hello, world!");
 
     assertLog()
-            .hasDebugMessage("TimberTest", "Hello, world!")
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest", "Hello, world!")
+        .hasNoMoreMessages();
   }
 
   @Test public void debugTreeTagGenerationStripsAnonymousClassMarker() {
@@ -142,9 +142,9 @@ public class TimberTest {
     }.run();
 
     assertLog()
-            .hasDebugMessage("TimberTest", "Hello, world!")
-            .hasDebugMessage("TimberTest", "Hello, world!")
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest", "Hello, world!")
+        .hasDebugMessage("TimberTest", "Hello, world!")
+        .hasNoMoreMessages();
   }
 
   @Test public void debugTreeCustomTag() {
@@ -152,8 +152,8 @@ public class TimberTest {
     Timber.tag("Custom").d("Hello, world!");
 
     assertLog()
-            .hasDebugMessage("Custom", "Hello, world!")
-            .hasNoMoreMessages();
+        .hasDebugMessage("Custom", "Hello, world!")
+        .hasNoMoreMessages();
   }
 
   @Test public void messageWithException() {
@@ -191,11 +191,11 @@ public class TimberTest {
     Timber.d(repeat('a', 3000) + '\n' + repeat('b', 6000) + '\n' + repeat('c', 3000));
 
     assertLog()
-            .hasDebugMessage("TimberTest", repeat('a', 3000))
-            .hasDebugMessage("TimberTest", repeat('b', 4000))
-            .hasDebugMessage("TimberTest", repeat('b', 2000))
-            .hasDebugMessage("TimberTest", repeat('c', 3000))
-            .hasNoMoreMessages();
+        .hasDebugMessage("TimberTest", repeat('a', 3000))
+        .hasDebugMessage("TimberTest", repeat('b', 4000))
+        .hasDebugMessage("TimberTest", repeat('b', 2000))
+        .hasDebugMessage("TimberTest", repeat('c', 3000))
+        .hasNoMoreMessages();
   }
 
   @Test public void nullMessageWithoutThrowable() {
@@ -227,18 +227,18 @@ public class TimberTest {
     Timber.tag("Custom").wtf("Assert");
 
     assertThat(logs).containsExactly( //
-            "2 TimberTest Verbose", //
-            "2 Custom Verbose", //
-            "3 TimberTest Debug", //
-            "3 Custom Debug", //
-            "4 TimberTest Info", //
-            "4 Custom Info", //
-            "5 TimberTest Warn", //
-            "5 Custom Warn", //
-            "6 TimberTest Error", //
-            "6 Custom Error", //
-            "7 TimberTest Assert", //
-            "7 Custom Assert" //
+        "2 TimberTest Verbose", //
+        "2 Custom Verbose", //
+        "3 TimberTest Debug", //
+        "3 Custom Debug", //
+        "4 TimberTest Info", //
+        "4 Custom Info", //
+        "5 TimberTest Warn", //
+        "5 Custom Warn", //
+        "6 TimberTest Error", //
+        "6 Custom Error", //
+        "7 TimberTest Assert", //
+        "7 Custom Assert" //
     );
   }
 
@@ -253,13 +253,13 @@ public class TimberTest {
     Timber.log(Log.ASSERT, "Hello, World!");
 
     assertLog()
-            .hasVerboseMessage("TimberTest", "Hello, World!")
-            .hasDebugMessage("TimberTest", "Hello, World!")
-            .hasInfoMessage("TimberTest", "Hello, World!")
-            .hasWarnMessage("TimberTest", "Hello, World!")
-            .hasErrorMessage("TimberTest", "Hello, World!")
-            .hasAssertMessage("TimberTest", "Hello, World!")
-            .hasNoMoreMessages();
+        .hasVerboseMessage("TimberTest", "Hello, World!")
+        .hasDebugMessage("TimberTest", "Hello, World!")
+        .hasInfoMessage("TimberTest", "Hello, World!")
+        .hasWarnMessage("TimberTest", "Hello, World!")
+        .hasErrorMessage("TimberTest", "Hello, World!")
+        .hasAssertMessage("TimberTest", "Hello, World!")
+        .hasNoMoreMessages();
   }
 
   @Test public void formatting() {
@@ -272,13 +272,13 @@ public class TimberTest {
     Timber.wtf("Hello, %s!", "World");
 
     assertLog()
-            .hasVerboseMessage("TimberTest", "Hello, World!")
-            .hasDebugMessage("TimberTest", "Hello, World!")
-            .hasInfoMessage("TimberTest", "Hello, World!")
-            .hasWarnMessage("TimberTest", "Hello, World!")
-            .hasErrorMessage("TimberTest", "Hello, World!")
-            .hasAssertMessage("TimberTest", "Hello, World!")
-            .hasNoMoreMessages();
+        .hasVerboseMessage("TimberTest", "Hello, World!")
+        .hasDebugMessage("TimberTest", "Hello, World!")
+        .hasInfoMessage("TimberTest", "Hello, World!")
+        .hasWarnMessage("TimberTest", "Hello, World!")
+        .hasErrorMessage("TimberTest", "Hello, World!")
+        .hasAssertMessage("TimberTest", "Hello, World!")
+        .hasNoMoreMessages();
   }
 
   @Test public void isLoggableControlsLogging() {
@@ -295,8 +295,8 @@ public class TimberTest {
     Timber.wtf("Hello, World!");
 
     assertLog()
-            .hasInfoMessage("TimberTest", "Hello, World!")
-            .hasNoMoreMessages();
+        .hasInfoMessage("TimberTest", "Hello, World!")
+        .hasNoMoreMessages();
   }
 
   @Test public void logsUnknownHostExceptions() {
