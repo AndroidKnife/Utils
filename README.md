@@ -17,7 +17,8 @@ Add libraries to your dependencies:
 ``` gradle
 dependencies {
     ...
-    compile 'com.hwangjr.utils:timber:1.0.0'
+    compile 'com.hwangjr.utils:timber:4.1.0'
+    compule 'com.hwangjr.utils:softinput:1.0.0'
 }
 ```
 
@@ -28,6 +29,9 @@ Two easy steps:
  1. Install any `Tree` instances you want in the `onCreate` of your application class.
  2. Call `Timber`'s static methods everywhere throughout your app.
 
+**SoftInput**
+
+Just Call The Function. More In [SoftInput README](softinput/README.md)
 
 License
 -------
