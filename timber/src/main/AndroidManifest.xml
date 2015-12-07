@@ -1,4 +1,3 @@
-<manifest package="com.hwangjr.timber">
-
-    <application />
+<manifest package="timber.log">
+    <application/>
 </manifest>

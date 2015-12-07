@@ -1,7 +1,7 @@
 Timber
 ------
 
-Timber is awesome, it can make `Log` to be a happy stuff!
+[Timber]((https://github.com/JakeWharton/timber)) is awesome, it can make `Log` to be a happy stuff!
 
 You also won't miss [Pidcat](http://github.com/JakeWharton/pidcat/) !
 

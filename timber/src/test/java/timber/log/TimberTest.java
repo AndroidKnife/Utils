@@ -1,4 +1,4 @@
-package com.hwangjr.timber;
+package timber.log;
 
 import android.util.Log;
 
