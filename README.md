@@ -17,7 +17,7 @@ Add libraries to your dependencies:
 ``` gradle
 dependencies {
     ...
-    compile 'com.hwangjr.utils:timber:4.1.0'
+    compile 'com.hwangjr.utils:timber:4.1.0.0'
     compule 'com.hwangjr.utils:softinput:1.0.0'
 }
 ```
