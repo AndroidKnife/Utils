@@ -16,6 +16,6 @@ Add New Module
 ========
 
  1. New Module For Project
- 2. Copy timber/gradle.properties and modify
- 3. Modify module/build.gradle, consider the timber/build.gradle or other build.gradle
- 4. Option, del res, modify manifest
+ 2. Copy `timber/gradle.properties` and modify
+ 3. Modify `module/build.gradle`, consider the `timber/build.gradle` or other `build.gradle`
+ 4. Option, del res, modify `manifest`
