@@ -44,5 +44,8 @@ ext.deps = [
         lintchecks   : 'com.android.tools.lint:lint-checks:24.3.1',
 
         // jetbrains
-        jbannotations: 'org.jetbrains:annotations:13.0'
+        jbannotations: 'org.jetbrains:annotations:13.0',
+
+        // dependence
+        gson         : 'com.google.code.gson:gson:2.5'
 ]
