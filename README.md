@@ -18,7 +18,9 @@ Add libraries to your dependencies:
 dependencies {
     ...
     compile 'com.hwangjr.utils:timber:4.1.0.0'
-    compule 'com.hwangjr.utils:softinput:1.0.0'
+    compile 'com.hwangjr.utils:softinput:1.0.1'
+    compile 'com.hwangjr.utils:json:1.0.0'
+    compile 'com.hwangjr.utils:xml:1.0.0'
 }
 ```
 
