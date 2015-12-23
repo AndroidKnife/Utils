@@ -22,9 +22,14 @@ import java.util.List;
 /**
  * This is the main class for using JSONResolver.
  * <br />
- * JSONResolver is typically used by parsing the json or the object. It's convenience to call {@link #toJson(Object)} and {@link #fromJson(String, Class)} to parse the object.
+ * JSONResolver is typically used by parsing the json or the object.
+ * It's convenience to call {@link #toJson(Object)} and {@link #fromJson(String, Class)}
+ * to parse the object.
  */
 public class JSONResolver {
+
+    private JSONResolver() {
+    }
 
     /**
      * Whether the clazz is the basic type.
@@ -230,7 +235,7 @@ public class JSONResolver {
             String jsonKey = jsonNode.key();
             if (jsonObject.has(jsonKey)) {
                 Class<?> fieldClazz = field.getType();
-                if (isBasicType(fieldClazz)) {// 基础类型
+                if (isBasicType(fieldClazz)) {
                     Object value = jsonObject.get(jsonKey);
                     jsonObject.remove(jsonKey);
                     try {
@@ -254,7 +259,7 @@ public class JSONResolver {
                     }
                 } else {
                     Object objValue = jsonObject.get(jsonKey);
-                    if (objValue != null && !objValue.equals(null)) {
+                    if (objValue != null) {
                         if (List.class.isAssignableFrom(fieldClazz)) {
                             List<Object> listValue = jsonArray2List(
                                     jsonObject.getJSONArray(jsonKey),

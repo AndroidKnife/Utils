@@ -7,6 +7,10 @@ import org.json.JSONObject;
  * This is a utility to get the value from JSON by key.
  */
 public class JSONGetter {
+
+    private JSONGetter() {
+    }
+
     /**
      * Get string from JSONObject.
      *
@@ -69,7 +73,7 @@ public class JSONGetter {
      * @return value of the key, if the value is null then return 0l
      */
     public static long getLong(JSONObject json, String key) {
-        return getLong(json, key, 0l);
+        return getLong(json, key, 0L);
     }
 
     /**

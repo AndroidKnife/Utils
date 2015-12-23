@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'checkstyle'
 
+checkstyle {
+    toolVersion rootProject.ext.checkstyleVersion
+}
+
 task checkstyle(type: Checkstyle) {
     configFile rootProject.file('checkstyle.xml')
     source 'src/main/java'

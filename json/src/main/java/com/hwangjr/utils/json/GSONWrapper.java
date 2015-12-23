@@ -18,7 +18,8 @@ public class GSONWrapper {
 
     /**
      * Build the default gson.
-     * This will set the field name strategy to {@link JFieldNamingStrategy} and exclusion strategy to {@link JExclusionStrategy}
+     * This will set the field name strategy to {@link JFieldNamingStrategy} and
+     * exclusion strategy to {@link JExclusionStrategy}
      *
      * @return gson
      */

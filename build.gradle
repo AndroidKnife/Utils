@@ -29,6 +29,8 @@ ext {
     buildToolsVersion = '23.0.2'
     sourceCompatibilityVersion = JavaVersion.VERSION_1_8
     targetCompatibilityVersion = JavaVersion.VERSION_1_8
+
+    checkstyleVersion = '6.1.1'
 }
 
 ext.deps = [

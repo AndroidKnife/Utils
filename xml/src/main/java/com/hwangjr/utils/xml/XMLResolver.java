@@ -48,6 +48,8 @@ public class XMLResolver {
                             }
                         }
                         break;
+                    default:
+                        break;
                 }
                 eventType = parser.next();
             }
