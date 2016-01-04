@@ -6,6 +6,9 @@ import android.os.ResultReceiver;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+/**
+ * Show/hide soft keyboard.
+ */
 public class SoftInput {
 
     private SoftInput() {
