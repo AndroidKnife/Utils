@@ -1,13 +1,8 @@
 package com.hwangjr.utils.application;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ManifestHelper {
 
@@ -38,30 +33,5 @@ public class ManifestHelper {
             e.printStackTrace();
         }
         return null;
-    }
-
-    /**
-     * whether app has granted this permission
-     *
-     * @param context
-     * @param permission Manifest.permission
-     * @return true if app has, also false
-     */
-    public static boolean hasPermission(Context context, String permission) {
-        return PackageManager.PERMISSION_GRANTED == context.getPackageManager().checkPermission(permission, context.getPackageName());
-    }
-
-    /**
-     * get granted permission list
-     */
-    public static List<String> getPermissions(Context context) {
-        List<String> permissions = new ArrayList<>();
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_PERMISSIONS);
-            permissions.addAll(Arrays.asList(packageInfo.requestedPermissions));
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return permissions;
     }
 }
