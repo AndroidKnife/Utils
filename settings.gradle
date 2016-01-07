@@ -1,1 +1,1 @@
-include ':softinput', ':timber', ':json', ':xml', ':archives', ':shell', ':collection', ':basic', ':application', ':templete', ':debug', ':screen'
+include ':softinput', ':timber', ':json', ':xml', ':archives', ':shell', ':collection', ':basic', ':application', ':templete', ':debug', ':screen', ':animation'
