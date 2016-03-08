@@ -141,10 +141,16 @@ public final class Timber {
     }
   }
 
+  public static int treeCount() {
+    synchronized (FOREST) {
+      return FOREST.size();
+    }
+  }
+
   private static final Tree[] TREE_ARRAY_EMPTY = new Tree[0];
   // Both fields guarded by 'FOREST'.
   private static final List<Tree> FOREST = new ArrayList<>();
-  private static volatile Tree[] forestAsArray = TREE_ARRAY_EMPTY;
+  static volatile Tree[] forestAsArray = TREE_ARRAY_EMPTY;
 
   /** A {@link Tree} that delegates to all planted trees in the {@linkplain #FOREST forest}. */
   private static final Tree TREE_OF_SOULS = new Tree() {
@@ -271,7 +277,7 @@ public final class Timber {
 
   /** A facade for handling logging calls. Install instances via {@link #plant Timber.plant()}. */
   public static abstract class Tree {
-    private final ThreadLocal<String> explicitTag = new ThreadLocal<>();
+    final ThreadLocal<String> explicitTag = new ThreadLocal<>();
 
     String getTag() {
       String tag = explicitTag.get();
